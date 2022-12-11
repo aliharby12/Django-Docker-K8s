@@ -21,7 +21,7 @@ services:
     ports:
       - "5432:5432"
     env_file:
-      - ./k8s/.env
+      - k8s/.env
     volumes:
       - postgres-data:/var/lib/postgresql/data
 volumes:

@@ -12,7 +12,7 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 COPY ./requirements.txt .
-
+RUN pip install pip --upgrade
 RUN pip install -r requirements.txt
 
 COPY . .

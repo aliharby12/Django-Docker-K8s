@@ -1,0 +1,28 @@
+version: '3'
+services:
+  app:
+    stdin_open: true # interactive mode
+    tty: true # if you want to show logs in docker 
+    container_name: k8s
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    restart: on-failure
+    volumes:
+      - ./k8s:/k8s
+    depends_on:
+      - db
+
+  db:
+    container_name: k8s_db
+    image: postgres:11.14-alpine
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./k8s/.env
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+volumes:
+  postgres-data:

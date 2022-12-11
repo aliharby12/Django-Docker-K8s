@@ -13,8 +13,8 @@ jobs:
         with:
           python-version: 3.8.10
       - name: Build the docker-compose stack
-        run: docker-compose up -d 
+        run: ./run.sh up -d 
       - name: Check running containers
         run: docker ps -a
       - name: Run unit Test
-        run: docker-compose exec -T app ./manage.py test ./tests
+        run: ./run.sh dj test

@@ -5,6 +5,8 @@ LABEL Author="harby"
 ARG ENV
 
 ENV PYTHONBUFFERED 1
+ENV PYTHONPATH $PYTHONPATH:/code:/code/k8s
+ENV DJANGO_SETTINGS_MODULE k8s.settings
 RUN apt-get update && apt-get install -y wget
 ENV DOCKERIZE_VERSION v0.6.1
 RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \

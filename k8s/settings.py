@@ -83,6 +83,7 @@ WSGI_APPLICATION = 'k8s.wsgi.application'
 #     }
 # }
 
+# POSTGRESQL
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
